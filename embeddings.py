@@ -6,8 +6,16 @@ import os
 from openai import OpenAI
 import os
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY").strip(),
-                base_url="https://aipipe.org/openai/")
+api_key = os.getenv("OPENAI_API_KEY")
+
+if not api_key:
+    raise RuntimeError("OPENAI_API_KEY is not set in environment variables")
+
+client = OpenAI(
+    api_key=api_key.strip(),
+    base_url="https://aipipe.org/openai/"
+)
+
 
 
 def get_embedding(text):
