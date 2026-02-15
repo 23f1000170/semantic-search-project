@@ -5,6 +5,8 @@ from documents import documents
 from embeddings import get_embedding, vector_search, rerank
 from fastapi.middleware.cors import CORSMiddleware
 
+app = FastAPI()
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # allow all origins
@@ -13,7 +15,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app = FastAPI()
 
 with open("doc_embeddings.pkl", "rb") as f:
     doc_embeddings = pickle.load(f)
