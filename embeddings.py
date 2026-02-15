@@ -6,8 +6,8 @@ import os
 from openai import OpenAI
 import os
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"),
-                base_url="https://aipipe.org/openai/v1")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY").strip(),
+                base_url="https://aipipe.org/openai/")
 
 
 def get_embedding(text):
@@ -66,3 +66,12 @@ def rerank(query, candidates, documents):
 
 
 #echo $env:OPENAI_API_KEY in powershell  ->It will print your saved key.
+import os
+
+print("ENV CHECK:", os.environ)
+print("KEY VALUE:", os.getenv("OPENAI_API_KEY"))
+
+client = OpenAI(
+    api_key=os.getenv("OPENAI_API_KEY"),
+    base_url="https://aipipe.org/openai/v1"
+)
