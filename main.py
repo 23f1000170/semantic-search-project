@@ -9,6 +9,10 @@ app = FastAPI()
 with open("doc_embeddings.pkl", "rb") as f:
     doc_embeddings = pickle.load(f)
 
+@app.get("/")
+def root():
+    return {"message": "Semantic Search API is running"}
+
 @app.post("/search")
 def search(payload: dict):
     start = time.time()
