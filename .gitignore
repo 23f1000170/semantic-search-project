@@ -1,0 +1,5 @@
+venv/
+__pycache__/
+*.pyc
+doc_embeddings.pkl
+.env
